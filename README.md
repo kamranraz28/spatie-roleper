@@ -9,7 +9,7 @@ rename this file to .env
 Run this command:
 composer update
 
-Download database .sql file "roleper.sql" if it's not downloaded yet. 
+Download database .sql file "roleper.sql" if it's not downloaded yet from my repository. 
 create a new database "roleper" to your mysql database and import the databse here.
 
 After that run the project:
