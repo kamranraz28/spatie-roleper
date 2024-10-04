@@ -16,6 +16,7 @@
             <tr>
                 <th>SN</th>
                 <th>Permission Name</th>
+                <th>Action</th> <!-- New Action Column -->
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,17 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $permission->name }}</td>
+                    <td>
+                        <!-- Edit Button -->
+                        <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning btn-sm">Edit</a>
+
+                        <!-- Delete Button -->
+                        <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this permission?');">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
@@ -30,3 +42,4 @@
 </div>
 
 @endsection
+

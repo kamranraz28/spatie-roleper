@@ -14,21 +14,32 @@
             <input type="text" name="name" id="name" class="form-control" required placeholder="Enter role name">
         </div>
         
-        <!-- Permissions Checkboxes -->
+        <!-- Permissions Table with DataTable -->
         <div class="col-md-12">
             <label class="form-label">Permissions:</label>
-            <div class="row">
-                @foreach ($permissions as $permission)
-                    <div class="col-md-4">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="permissions[]" value="{{ $permission->id }}" id="permission-{{ $permission->id }}">
-                            <label class="form-check-label" for="permission-{{ $permission->id }}">
-                                {{ $permission->name }}
-                            </label>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            <table id="example1" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Permission Name</th>
+                        <th>Select</th> <!-- New Select Column -->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($permissions as $index => $permission)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $permission->name }}</td>
+                        <td>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="permissions[]" value="{{ $permission->id }}" id="permission-{{ $permission->id }}">
+                                <label class="form-check-label" for="permission-{{ $permission->id }}"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
         
         <!-- Submit Button -->

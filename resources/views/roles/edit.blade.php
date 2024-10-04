@@ -16,22 +16,32 @@
         @csrf
         @method('PUT')
 
-        <!-- Permissions Section -->
+        <!-- Permissions Table -->
         <div class="col-12">
             <h3>Permissions</h3>
-            <div class="row">
-                @foreach ($permissions as $permission)
-                    <div class="col-md-4">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="permissions[]" value="{{ $permission->id }}"
-                                {{ in_array($permission->id, $rolePermissions) ? 'checked' : '' }}>
-                            <label class="form-check-label">
-                                {{ $permission->name }}
-                            </label>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            <table id="example1" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Permission Name</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($permissions as $index => $permission)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $permission->name }}</td>
+                        <td>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="permissions[]" value="{{ $permission->id }}"
+                                    {{ in_array($permission->id, $rolePermissions) ? 'checked' : '' }}>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
 
         <!-- Submit Button -->

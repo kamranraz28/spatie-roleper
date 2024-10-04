@@ -28,6 +28,9 @@ Route::post('/store-user', [UserController::class, 'store'])->name('store.user')
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/user-create', [UserController::class, 'create'])->name('users.create');
+Route::get('/user-edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/user-destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::put('/user-update/{id}', [UserController::class, 'update'])->name('users.update');
 
 Route::get('/user-logout', [LoginController::class, 'userLogout'])->name('userLogout');
 Route::resource('roles', RoleController::class);
