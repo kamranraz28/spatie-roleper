@@ -4,21 +4,28 @@
 
 @section('content')
 
-<div class="common-container">
-    <h2>Create Permission</h2>
-    <form action="{{ route('permissions.store') }}" method="POST" class="common-form row g-3">
-        @csrf
-        <div class="form-group">
-            <label for="name">Permission Name:</label>
-            <input type="text" name="name" id="name" required>
+<div class="container my-5">
+    <!-- Card for better structure -->
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Create Permission</h4>
         </div>
+        <div class="card-body">
+            <!-- Form for creating a permission -->
+            <form action="{{ route('permissions.store') }}" method="POST" class="row g-3">
+                @csrf
+                <div class="col-md-12">
+                    <label for="name" class="form-label">Permission Name:</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter permission name" required>
+                </div>
 
-        <div class="col-12 text-center mt-4">
-            <button type="submit" class="btn btn-primary">Create Permission</button>
+                <!-- Centered button with spacing -->
+                <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5">Create Permission</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 
 @endsection
-
-

@@ -33,7 +33,20 @@ Route::get('/user-destroy/{id}', [UserController::class, 'destroy'])->name('user
 Route::put('/user-update/{id}', [UserController::class, 'update'])->name('users.update');
 
 Route::get('/user-logout', [LoginController::class, 'userLogout'])->name('userLogout');
-Route::resource('roles', RoleController::class);
 Route::resource('permissions', PermissionController::class);
+
+Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
+Route::get('/roles-create', [RoleController::class, 'create'])->name('roles.create');
+Route::post('/roles-store', [UserController::class, 'store'])->name('roles.store');
+Route::get('/roles-edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
+Route::get('/roles-destroy/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+Route::put('/roles-update/{id}', [RoleController::class, 'update'])->name('roles.update');
+
+Route::get('/permissions', [PermissionController::class, 'index'])->name('permissions.index');
+Route::get('/permissions-create', [PermissionController::class, 'create'])->name('permissions.create');
+Route::post('/permissions-store', [PermissionController::class, 'store'])->name('permissions.store');
+Route::get('/permissions-edit/{id}', [PermissionController::class, 'edit'])->name('permissions.edit');
+Route::get('/permissions-destroy/{id}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
+Route::put('/permissions-update/{id}', [PermissionController::class, 'update'])->name('permissions.update');
 
 });

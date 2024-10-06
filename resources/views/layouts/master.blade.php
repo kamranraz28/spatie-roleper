@@ -2,28 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+
     <title>@yield('title')</title>
 
-    @include('layouts.css')
+    @include('layouts.css') <!-- Include your CSS files here -->
 </head>
 
 <body>
-    <header>
-        @include('header')
-    </header>
+  
+
+    @include('header') <!-- Include your header here -->
 
     <div class="dashboard-container">
-        @include('sidebar')
+        @include('sidebar') <!-- Include your sidebar here -->
 
         <main class="dashboard-content">
-            @yield('content')
+            <div class="pcoded-main-container">
+                <div class="pcoded-content">
+                    @yield('content') <!-- Content will be injected here -->
+                </div>
+            </div>
         </main>
     </div>
 
-    @include('layouts.js')
-
+    @include('layouts.js') <!-- Include your JS files here -->
 </body>
 
 </html>

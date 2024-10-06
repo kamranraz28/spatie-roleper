@@ -1,171 +1,78 @@
-<!-- resources/views/login.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome link -->
-    <style>
-        /* General Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
-        /* Body Style */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0; /* Fallback for older browsers */
-        }
+    <title>Kamran</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
-        /* Login Container */
-        .login-container {
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* Background for login container */
-            height: 100vh; /* Full viewport height */
-            display: flex; /* Flexbox for centering */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-        }
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-        /* Login Form */
-        .login-form {
-            background: #ffffff; /* Background for form */
-            padding: 40px; /* Padding for form */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Shadow effect */
-            width: 100%; /* Full width */
-            max-width: 400px; /* Maximum width */
-            transition: transform 0.3s; /* Transition for hover effect */
-        }
 
-        /* Hover Effect */
-        .login-form:hover {
-            transform: translateY(-5px); /* Hover effect */
-        }
 
-        /* Heading */
-        h2 {
-            text-align: center; /* Center text */
-            margin-bottom: 20px; /* Bottom margin */
-            color: #333; /* Text color */
-            font-weight: bold; /* Bold text */
-        }
 
-        /* Input Group */
-        .input-group {
-            position: relative; /* Position for icon */
-            margin-bottom: 20px; /* Bottom margin */
-        }
-
-        /* Icon Positioning */
-        .input-group i {
-            position: absolute; /* Absolute positioning */
-            left: 10px; /* Position from left */
-            top: 12px; /* Position from top */
-            color: #999; /* Icon color */
-        }
-
-        /* Input Fields */
-        input[type="email"],
-        input[type="password"] {
-            width: 100%; /* Full width */
-            padding: 10px 35px; /* Padding with space for icon */
-            border: 1px solid #ccc; /* Border */
-            border-radius: 5px; /* Rounded corners */
-            font-size: 16px; /* Font size */
-            transition: border-color 0.3s; /* Transition for border color */
-            box-sizing: border-box; /* Ensure padding is included in width */
-        }
-
-        /* Input Focus Style */
-        input:focus {
-            border-color: #6a11cb; /* Border color on focus */
-            outline: none; /* Remove outline */
-        }
-
-        /* Button Style */
-        button {
-            width: 100%; /* Full width */
-            padding: 10px; /* Padding */
-            background-color: #6a11cb; /* Button color */
-            color: white; /* Text color */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            font-size: 18px; /* Font size */
-            cursor: pointer; /* Pointer cursor */
-            transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
-        }
-
-        /* Button Hover Effect */
-        button:hover {
-            background-color: #2575fc; /* Button hover color */
-            transform: translateY(-2px); /* Hover effect */
-        }
-
-        /* Footer Style */
-        .footer {
-            text-align: center; /* Center footer text */
-            margin-top: 20px; /* Top margin */
-        }
-
-        /* Footer Link Style */
-        .footer .link {
-            margin: 5px 0; /* Margin for link */
-        }
-
-        /* Footer Link */
-        .footer a {
-            color: #6a11cb; /* Link color */
-            text-decoration: none; /* No underline */
-            transition: color 0.3s; /* Transition for color change */
-        }
-
-        /* Footer Link Hover Effect */
-        .footer a:hover {
-            color: #2575fc; /* Link hover color */
-            text-decoration: underline; /* Underline on hover */
-        }
-
-        .error-message {
-            background-color: #ffdddd; /* Light red background */
-            color: #d8000c; /* Dark red text */
-            border: 1px solid #d8000c; /* Dark red border */
-            padding: 10px; /* Padding around the message */
-            margin-bottom: 20px; /* Margin below the error message */
-            border-radius: 5px; /* Rounded corners */
-        }
-    </style>
 </head>
-<body>
-    <div class="login-container"> <!-- This class will help scope the CSS -->
-        <form class="login-form" action="{{ route('userLogin') }}" method="POST">
-            @csrf
-            <h2>Welcome Back</h2> <!-- Optional Heading -->
 
-             @if ($errors->any())
-                <div class="error-message">
-                        @foreach ($errors->all() as $error)
-                            {{ $error }}
-                        @endforeach
-
+<!-- [ auth-signin ] start -->
+<div class="auth-wrapper">
+    <div class="auth-content text-center">
+        <img src="assets/images/logo.png" alt="" class="img-fluid mb-4">
+        <div class="card borderless">
+            <div class="row align-items-center ">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <form action="{{ route('userLogin') }}" method="POST">
+                            @csrf
+                            <h4 class="mb-3 f-w-400">Signin</h4>
+                            <hr>
+                            <div class="form-group mb-3">
+                                <input type="text" class="form-control" id="Email" name="email"
+                                    placeholder="Email address">
+                            </div>
+                            <div class="form-group mb-4">
+                                <input type="password" class="form-control" name="password" id="Password"
+                                    placeholder="Password">
+                            </div>
+                            <div class="custom-control custom-checkbox text-left mb-4 mt-2">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Save credentials.</label>
+                            </div>
+                            <button class="btn btn-block btn-primary mb-4">Signin</button>
+                            <hr>
+                            <p class="mb-2 text-muted">Forgot password? <a href="auth-reset-password.html"
+                                    class="f-w-400">Reset</a></p>
+                        </form>
+                    </div>
                 </div>
-            @endif
-
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" name="email" placeholder="Email" required>
             </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit">Login</button>
-            <div class="footer">
-                <p class="link"><a href="#">Forgot Password?</a></p>
-            </div>
-        </form>
+        </div>
     </div>
+</div>
+<!-- [ auth-signin ] end -->
+
+<!-- Required Js -->
+<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+
+<script src="assets/js/pcoded.min.js"></script>
+
+
+
 </body>
+
 </html>

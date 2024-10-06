@@ -7,11 +7,14 @@
 <div class="common-container">
     <h2>Roles</h2>
 
-    <div class="button-container">
-        <a class="create-permission-btn" href="{{ route('roles.create') }}">Create Roles</a>
+
+    <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-primary" href="{{ route('roles.create') }}">
+            <i class="fas fa-plus"></i> Create Roles
+        </a>
     </div>
 
-    <table id="example1" class="table table-striped table-bordered" style="width:100%">
+    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>SN</th>
@@ -38,9 +41,11 @@
                     </td>
                     <td>
 
-                        <div class="button-container">
-                            <a class="create-permission-btn" href="{{ route('roles.edit', $role->id) }}">Edit
-                                Permissions</a>
+
+                        <div class="d-flex justify-content-center mb-4">
+                            <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">Edit
+                                Permissions
+                            </a>
                         </div>
                     </td>
                 </tr>

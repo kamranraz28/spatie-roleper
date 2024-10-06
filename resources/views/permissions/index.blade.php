@@ -4,42 +4,57 @@
 
 @section('content')
 
-<div class="common-container">
-    <h2>Permissions</h2>
 
-    <div class="button-container">
-        <a class="create-permission-btn" href="{{ route('permissions.create') }}">Create Permission</a>
+<div class="container mt-2">
+    <h2 class="text-center mb-4">Permissions</h2>
+
+    <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-primary" href="{{ route('permissions.create') }}">
+            <i class="fas fa-plus"></i> Create Permission
+        </a>
     </div>
 
-    <table id="example1" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>SN</th>
-                <th>Permission Name</th>
-                <th>Action</th> <!-- New Action Column -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($permissions as $permission)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $permission->name }}</td>
-                    <td>
-                        <!-- Edit Button -->
-                        <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning btn-sm">Edit</a>
 
-                        <!-- Delete Button -->
-                        <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this permission?');">Delete</button>
-                        </form>
-                    </td>
+
+
+    <div class="table-responsive">
+        <table id="example" class="display" style="width:100%">
+
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>Permission Name</th>
+                    <th>Action</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($permissions as $permission)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $permission->name }}</td>
+                        <td>
+                            <!-- Edit Button -->
+                            <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+
+                            <!-- Delete Button -->
+                            <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST"
+                                class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Are you sure you want to delete this permission?');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
-@endsection
 
+@endsection
