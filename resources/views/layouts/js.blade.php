@@ -1,14 +1,14 @@
 <!-- Required Js -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="assets/js/vendor-all.min.js"></script>
-<script src="assets/js/plugins/bootstrap.min.js"></script>
-<script src="assets/js/pcoded.min.js"></script>
+<script src="{{ asset('assets/js/vendor-all.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
 
 <!-- Apex Chart -->
-<script src="assets/js/plugins/apexcharts.min.js"></script>
+<script src="{{ asset('assets/js/plugins/apexcharts.min.js') }}"></script>
 
 <!-- custom-chart js -->
-<script src="assets/js/pages/dashboard-main.js"></script>
+<script src="{{ asset('assets/js/pages/dashboard-main.js') }}"></script>
 
 <!-- DataTables and Buttons -->
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
