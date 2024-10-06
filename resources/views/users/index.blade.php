@@ -11,7 +11,7 @@
         <a class="create-permission-btn" href="{{ route('users.create') }}">Create User</a>
     </div>
 
-    <table id="example1" class="display nowrap" style="width:100%">
+    <table id="example1" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>

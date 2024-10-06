@@ -15,11 +15,8 @@
     <form action="{{ route('roles.update', $role->id) }}" method="POST" class="row g-3">
         @csrf
         @method('PUT')
-
-        <!-- Permissions Table -->
-        <div class="col-12">
             <h3>Permissions</h3>
-            <table id="example1" class="table table-bordered">
+            <table id="example1" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>SN</th>
@@ -42,7 +39,7 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
+        </div> 
 
         <!-- Submit Button -->
         <div class="col-12 text-center mt-4">

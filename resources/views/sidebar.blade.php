@@ -5,7 +5,7 @@
                 <a href="{{ route('users.dashboard') }}">Dashboard</a>
             </li>
             <li>
-                <a href="#">User Settings</a>
+                <a href="#">User Configuration</a>
                 <ul class="submenu"> <!-- Submenu for User Settings -->
                     <li><a href="{{ route('permissions.index') }}">Permissions</a></li>
                     <li><a href="{{ route('roles.index') }}">Roles</a></li>
