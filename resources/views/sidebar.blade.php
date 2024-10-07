@@ -3,7 +3,15 @@
         <div class="navbar-content scroll-div">
             <div class="">
                 <div class="main-menu-header">
-                    <img class="img-radius" src="{{ asset('assets/images/user/avatar-2.jpg') }}" alt="User-Profile-Image">
+                    @if (Auth::user()->image !== null)
+                        <img class="img-fluid rounded-circle" src="{{ asset('storage/img/' . Auth::user()->image) }}"
+                            alt="User-Profile-Image" style="width: 40px; height: 40px;">
+                    @else
+                        <img class="img-fluid rounded-circle" src="{{ asset('assets/images/user/avatar-2.jpg') }}"
+                            alt="User-Profile-Image" style="width: 40px; height: 40px;">
+                    @endif
+
+
                     <div class="user-details">
                         <span>{{ Auth::user()->name }}</span>
                         <div id="more-details">
@@ -18,8 +26,10 @@
                 </div>
                 <div class="collapse" id="nav-user-link">
                     <ul class="list-unstyled">
-                        <li class="list-group-item"><a href=""><i class="feather icon-user m-r-5"></i>View Profile</a></li>
-                        <li class="list-group-item"><a href="{{ route('userLogout') }}"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                        <li class="list-group-item"><a href="{{ route('viewProfie') }}"><i
+                                    class="feather icon-user m-r-5"></i>View Profile</a></li>
+                        <li class="list-group-item"><a href="{{ route('userLogout') }}"><i
+                                    class="feather icon-log-out m-r-5"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>
