@@ -50,8 +50,7 @@ class AppServiceProvider extends ServiceProvider
         //     }
         // });
 
-        //Not send issues to Email
-        SentrySdk::getCurrentHub()->setEnabled(false);
+      
     }
 
 
