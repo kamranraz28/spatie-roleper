@@ -42,12 +42,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('notifications', $notifications);
         });
 
-        SentrySdk::getCurrentHub()->configureScope(function (Scope $scope) {
-            // Check if a route is defined before attempting to get its name
-            if ($route = request()->route()) {
-                $scope->setTransactionName($route->getName());
-            }
-        });
+        // SentrySdk::getCurrentHub()->configureScope(function (Scope $scope) {
+        //     // Check if a route is defined before attempting to get its name
+        //     if ($route = request()->route()) {
+        //         $scope->setTransactionName($route->getName());
+        //     }
+        // });
+        SentrySdk::getCurrentHub()->setEnabled(false);
     }
 
 
