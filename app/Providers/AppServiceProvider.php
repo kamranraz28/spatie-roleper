@@ -42,12 +42,15 @@ class AppServiceProvider extends ServiceProvider
             $view->with('notifications', $notifications);
         });
 
+        //For sending issues to Email
         // SentrySdk::getCurrentHub()->configureScope(function (Scope $scope) {
         //     // Check if a route is defined before attempting to get its name
         //     if ($route = request()->route()) {
         //         $scope->setTransactionName($route->getName());
         //     }
         // });
+
+        //Not send issues to Email
         SentrySdk::getCurrentHub()->setEnabled(false);
     }
 
