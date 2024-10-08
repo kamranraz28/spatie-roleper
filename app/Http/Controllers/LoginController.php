@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+
+
 
 class LoginController extends Controller
 {
@@ -33,6 +37,45 @@ class LoginController extends Controller
         $request->session()->regenerateToken(); // Regenerate CSRF token
 
         return redirect(''); // Redirect to login page
+    }
+
+    public function resetPassord()
+    {
+        return view('passwordReset');
+    }
+
+    public function sendOTP(Request $request)
+    {
+        // Validate the email
+        $request->validate([
+            'email' => 'required|email|exists:users,email'
+        ]);
+
+        // Get the user by email
+        $user = User::where('email', $request->email)->first();
+        // dd($user);
+
+        if ($user) {
+            // Generate OTP (can be a random string or number)
+            //$otp = Str::random(6); // You can also use rand(100000, 999999) for a numeric OTP
+            $otp = rand(100000, 999999);
+            //dd($otp);
+
+            // Update user's password to OTP (hash the OTP)
+            $user->password = Hash::make($otp);
+            $user->save();
+
+            // Send the OTP via email
+            Mail::send('otp', ['otp' => $otp, 'user' => $user], function ($message) use ($user) {
+                $message->to($user->email);
+                $message->subject('Your OTP for Login');
+            });
+            
+
+            return redirect()->back()->with('success', 'An OTP has been sent to your email. Use this OTP as password and Login.');
+        }
+
+        return redirect()->back()->with('error', 'This email is not correct.');
     }
 
 }

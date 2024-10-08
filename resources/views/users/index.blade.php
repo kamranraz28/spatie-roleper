@@ -4,6 +4,12 @@
 
 @section('content')
 
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <div class="common-container">
     <h2>List of Users with Their Roles</h2>
 

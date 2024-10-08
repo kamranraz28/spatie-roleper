@@ -8,6 +8,12 @@
 <div class="container mt-2">
     <h2 class="text-center mb-4">Permissions</h2>
 
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
     <div class="d-flex justify-content-end mb-4">
         <a class="btn btn-primary" href="{{ route('permissions.create') }}">
             <i class="fas fa-plus"></i> Create Permission

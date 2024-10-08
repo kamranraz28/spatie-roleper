@@ -10,6 +10,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
             <li>
+                @can('notification_access')
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                         <i class="icon feather icon-bell"></i>
@@ -55,6 +56,7 @@
                         </div> -->
                     </div>
                 </div>
+                @endcan
 
             </li>
             <li>

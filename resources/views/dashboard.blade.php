@@ -4,6 +4,12 @@
 
 @section('content')
 
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
@@ -32,8 +38,8 @@
                                     <i class="icon feather icon-eye text-c-green mb-1 d-block"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
-                                    <h5>10k</h5>
-                                    <span>Visitors</span>
+                                    <h5>{{ $userTotal}}</h5>
+                                    <span>Users</span>
                                 </div>
                             </div>
                         </div>

@@ -7,6 +7,12 @@
 <div class="common-container">
     <h2>Roles</h2>
 
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 
     <div class="d-flex justify-content-end mb-4">
         <a class="btn btn-primary" href="{{ route('roles.create') }}">

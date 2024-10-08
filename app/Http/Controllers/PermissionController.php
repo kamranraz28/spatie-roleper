@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\PermissionService;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use App\Models\Notification;
@@ -9,10 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class PermissionController extends Controller
 {
+    protected $permissionService;
+
+    public function __construct(PermissionService $permissionService)
+    {
+        $this->permissionService = $permissionService;
+    }
     public function index()
     {
-        $permissions = Permission::all();
-        return view('permissions.index', compact('permissions'));
+        $data = $this->permissionService->getPermission();
+        return view('permissions.index', $data);
     }
 
     public function create()
@@ -22,18 +29,8 @@ class PermissionController extends Controller
 
     public function store(Request $request)
     {
-        $id = Auth()->id();
-        Permission::create(['name' => $request->name]);
-
-        // Create a notification for user creation
-        $notification = new Notification();
-        $notification->user_id = null;
-        $notification->message = Auth::user()->name . " created a perission- {$request->name}";
-        $notification->is_read = false;
-        $notification->created_by = $id;
-        $notification->save();
-
-        return redirect()->route('permissions.index');
+        $this->permissionService->storePermission($request);
+        return redirect()->route('permissions.index')->with('success', 'Permission created successfully!');
     }
 
     public function edit($id)

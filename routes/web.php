@@ -13,9 +13,22 @@ Route::get('', function () {
     return view('login');
 })->name('login');
 
+Route::get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
+
+Route::get('/performance-test', function () {
+    // Simulate some processing
+    sleep(2); // Sleep for 2 seconds
+    return 'Performance test completed!';
+});
+
 
 
 Route::post('/user-login', [LoginController::class, 'userLogin'])->name('userLogin');
+Route::get('/reset-password', [LoginController::class, 'resetPassord'])->name('resetPassord');
+Route::post('/send-otp', [LoginController::class, 'sendOTP'])->name('sendOTP');
+
 
 Route::middleware(['auth', 'preventBackAfterLogout'])->group(function () {
     // Protected routes
@@ -33,7 +46,7 @@ Route::post('/user-destroy/{id}', [UserController::class, 'destroy'])->name('use
 Route::put('/user-update/{id}', [UserController::class, 'update'])->name('users.update');
 
 Route::get('/user-logout', [LoginController::class, 'userLogout'])->name('userLogout');
-Route::get('/user-profile', [UserController::class, 'viewProfie'])->name('viewProfie');
+Route::get('/user-profile', [UserController::class, 'viewProfile'])->name('viewProfie');
 Route::post('updateProfile', [UserController::class, 'updateProfile'])->name('updateProfile');
 
 Route::get('/clear-all', [UserController::class, 'clearAll'])->name('clearAll');

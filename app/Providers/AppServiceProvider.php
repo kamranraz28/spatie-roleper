@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Notification; 
 use Carbon\Carbon;
+use Sentry\SentrySdk;
+use Sentry\State\Scope;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,5 +41,14 @@ class AppServiceProvider extends ServiceProvider
             // Share the notifications with all views
             $view->with('notifications', $notifications);
         });
+
+        SentrySdk::getCurrentHub()->configureScope(function (Scope $scope) {
+            // Check if a route is defined before attempting to get its name
+            if ($route = request()->route()) {
+                $scope->setTransactionName($route->getName());
+            }
+        });
     }
+
+
 }
