@@ -12,6 +12,7 @@ use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use App\Services\UserService;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Settings;
 
 
 class UserController extends Controller
@@ -88,6 +89,46 @@ class UserController extends Controller
         Notification::query()->update(['notifiable_id' => 1]);
 
         return redirect()->back()->with('success', 'All notifications have been marked as read.');
+    }
+
+    public function logoChangeView()
+    {
+        return view('users.logoChange');
+    }
+
+    public function logoUpdate(Request $request)
+    {
+        $this->userService->updateSoftLogo($request);
+        return redirect()->back()->with('success', 'Application logo has successfully changed.');
+
+    }
+
+    public function colorChangeView()
+    {
+        return view('users.colorChange');
+    }
+
+    public function updateColors(Request $request)
+    {
+        $request->validate([
+            'headerColor' => 'required|string',
+            'sidebarColor' => 'required|string',
+            'buttonColor' => 'required|string',
+        ]);
+        // dd($request->all());
+
+        // Save the colors in the settings table
+        $settings = Settings::first();
+        if (!$settings) {
+            $settings = new Settings();
+        }
+
+        $settings->header_color = $request->input('headerColor');
+        $settings->sidebar_color = $request->input('sidebarColor');
+        $settings->button_color = $request->input('buttonColor');
+        $settings->save();
+
+        return back()->with('success', 'Colors updated successfully!');
     }
 
 

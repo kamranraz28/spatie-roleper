@@ -44,7 +44,9 @@
         </table>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Update Role</button>
+        <div class="col-12 text-center mt-4">
+        <button type="submit" class="btn btn-primary" style="background-color: {{ $buttonColor }};">Update Role</button>
+        </div>
     </form>
     <!-- Edit role form ends -->
 

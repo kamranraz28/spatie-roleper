@@ -52,7 +52,7 @@
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                 <label class="custom-control-label" for="customCheck1">Save credentials.</label>
                             </div>
-                            <button class="btn btn-block btn-primary mb-4">Signin</button>
+                            <button class="btn btn-block btn-primary mb-4" style="background-color: {{ $buttonColor }};">Signin</button>
                             <hr>
                             <p class="mb-2 text-muted">Forgot password? <a href="{{route('resetPassord')}}"
                                     class="f-w-400">Reset</a></p>

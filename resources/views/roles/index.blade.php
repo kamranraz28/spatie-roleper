@@ -15,7 +15,7 @@
 
 
     <div class="d-flex justify-content-end mb-4">
-        <a class="btn btn-primary" href="{{ route('roles.create') }}">
+        <a class="btn btn-primary" href="{{ route('roles.create') }}" style="background-color: {{ $buttonColor }};">
             <i class="fas fa-plus"></i> Create Roles
         </a>
     </div>
@@ -49,7 +49,7 @@
 
 
                         <div class="d-flex justify-content-center mb-4">
-                            <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">Edit
+                            <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}" style="background-color: {{ $buttonColor }};">Edit
                                 Permissions
                             </a>
                         </div>

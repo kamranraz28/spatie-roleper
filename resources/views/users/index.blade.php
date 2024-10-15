@@ -15,7 +15,7 @@
 
   
     <div class="d-flex justify-content-end mb-4">
-        <a class="btn btn-primary" href="{{ route('users.create') }}">
+        <a class="btn btn-primary" href="{{ route('users.create') }}" style="background-color: {{ $buttonColor }};">
         <i class="fas fa-plus"> </i> Create User
         </a>
     </div>

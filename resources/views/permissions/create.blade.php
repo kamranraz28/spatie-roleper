@@ -21,7 +21,7 @@
 
                 <!-- Centered button with spacing -->
                 <div class="col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg px-5">Create Permission</button>
+                    <button type="submit" class="btn btn-primary px-3" style="background-color: {{ $buttonColor }};">Create Permission</button>
                 </div>
             </form>
         </div>

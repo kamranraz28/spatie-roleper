@@ -1,10 +1,20 @@
-<header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+<header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark" style="background-color: {{ $headerColor }};">
     <div class="m-header">
         <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
         <a href="#!" class="b-brand">
             <!-- ========   change your logo here   ============ -->
-            <img src="{{ asset('assets/images/logo.png') }}" alt="" class="logo">
-            <img src="{{ asset('assets/images/logo-icon.png') }}" alt="" class="logo-thumb">
+            @php
+                $extensions = ['png', 'jpg', 'jpeg', 'gif']; // Add other extensions as needed
+                $filePath = '';
+                foreach ($extensions as $ext) {
+                    if (file_exists(public_path('storage/img/softwareLogo.' . $ext))) {
+                        $filePath = asset('storage/img/softwareLogo.' . $ext);
+                        break;
+                    }
+                }
+            @endphp
+
+            <img src="{{ $filePath }}" alt="Software Logo" class="logo">
         </a>
     </div>
     <div class="collapse navbar-collapse">
@@ -20,14 +30,12 @@
                         <div class="noti-head">
                             <h6 class="d-inline-block m-b-0">Notifications</h6>
                             <div class="float-right">
-                                <!-- <a href="#!" class="m-r-10">mark as read</a> -->
                                 <a href="{{ route('clearAll')}}">clear all</a>
                             </div>
                         </div>
                         <ul class="noti-body">
                             @foreach ($notifications as $notification)
                                 <li class="notification" >
-                                <!-- style="background-color: {{ $notification->is_read ? 'white' : '#2596be' }};" -->
                                     <div class="media">
                                         @php
                                             // Get the user who created the notification
@@ -43,21 +51,15 @@
                                                 <span style="float: right;">
                                                     {{ $notification->created_at->diffForHumans() }}
                                                 </span>
-                                                
                                             </p>
                                         </div>
                                     </div>
                                 </li>
                             @endforeach
                         </ul>
-
-                        <!-- <div class="noti-footer">
-                            <a href="#!">show all</a>
-                        </div> -->
                     </div>
                 </div>
                 @endcan
-
             </li>
             <li>
                 <div class="dropdown drp-user">

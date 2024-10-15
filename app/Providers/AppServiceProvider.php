@@ -29,29 +29,31 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        // Sharing notifications with all views
-        View::composer('*', function ($view) {
-            // Get all notifications
-            $notifications = Notification::where('notifiable_id', 0)
-                 ->orderBy('created_at', 'desc')
-                ->take(10) // Limit to last 5 notifications
-                ->get();
+        {
+            // Sharing notifications and header color with all views
+            View::composer('*', function ($view) {
+                // Get all notifications
+                $notifications = Notification::where('notifiable_id', 0)
+                    ->orderBy('created_at', 'desc')
+                    ->take(10) // Limit to the last 10 notifications
+                    ->get();
 
-            // Share the notifications with all views
-            $view->with('notifications', $notifications);
-        });
+                // Fetch the settings to get the header color
+                $settings = \App\Models\Settings::first();
+                $headerColor = $settings->header_color ?? '#ffffff'; // Default to white if not set
+                $sidebarColor = $settings->sidebar_color ?? '#ffffff';
+                $buttonColor = $settings->button_color ?? '#ffffff';
 
-        //For sending issues to Email
-        // SentrySdk::getCurrentHub()->configureScope(function (Scope $scope) {
-        //     // Check if a route is defined before attempting to get its name
-        //     if ($route = request()->route()) {
-        //         $scope->setTransactionName($route->getName());
-        //     }
-        // });
+                // Share the notifications and headerColor with all views
+                $view->with([
+                    'notifications' => $notifications,
+                    'headerColor' => $headerColor,
+                    'sidebarColor' => $sidebarColor,
+                    'buttonColor' => $buttonColor,
+                ]);
+            });
+        }
 
-      
-    }
 
 
 }

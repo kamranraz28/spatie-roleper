@@ -11,6 +11,7 @@ use App\Models\Notification;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -130,4 +131,27 @@ class UserService
         $user = User::findOrFail($id);
         $user->delete();
     }
+
+
+    public function updateSoftLogo(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            // Define the fixed filename and get the original extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $filename = "softwareLogo." . $extension; // Fixed name with the original extension
+
+            $filePath = 'img/' . $filename;
+
+            // Check if the file already exists and delete it
+            if (Storage::disk('public')->exists($filePath)) {
+                Storage::disk('public')->delete($filePath);
+            }
+
+            // Store the new image
+            $path = $request->file('image')->storeAs('img', $filename, 'public');
+        }
+    }
+
+
+
 }

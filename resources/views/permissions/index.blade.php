@@ -15,7 +15,7 @@
 @endif
 
     <div class="d-flex justify-content-end mb-4">
-        <a class="btn btn-primary" href="{{ route('permissions.create') }}">
+        <a class="btn btn-primary" href="{{ route('permissions.create') }}" style="background-color: {{ $buttonColor }};">
             <i class="fas fa-plus"></i> Create Permission
         </a>
     </div>

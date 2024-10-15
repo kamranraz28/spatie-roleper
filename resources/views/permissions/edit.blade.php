@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div class="container my-5">
+<div class="container my-5" >
     <!-- Card for better structure -->
     <div class="card shadow-lg">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-primary text-white" style="background-color: {{ $buttonColor }};">
             <h4 class="mb-0">Edit Permission: {{ $permission->name }}</h4>
         </div>
         <div class="card-body">
@@ -24,8 +24,8 @@
 
                 <!-- Centered button with spacing -->
                 <div class="col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg px-5">Update Permission</button>
-                    <a href="{{ route('permissions.index') }}" class="btn btn-secondary btn-lg px-5">Cancel</a>
+                    <button type="submit" class="btn btn-primary btn-lg px-3" style="background-color: {{ $buttonColor }};">Update Permission</button>
+                    <a href="{{ route('permissions.index') }}" class="btn btn-secondary btn-lg px-3" style="background-color: {{ $buttonColor }};">Cancel</a>
                 </div>
             </form>
         </div>

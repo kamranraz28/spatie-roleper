@@ -64,7 +64,7 @@
 
         <!-- Submit Button -->
         <div class="col-12 text-center mt-4">
-            <button type="submit" class="btn btn-primary btn-lg">Create User and Assign Role</button>
+            <button type="submit" class="btn btn-primary px-3" style="background-color: {{ $buttonColor }};">Create User and Assign Role</button>
         </div>
 
     </form>
