@@ -17,6 +17,7 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->string('header_color')->nullable();
             $table->string('sidebar_color')->nullable();
+            $table->string('button_color')->nullable();
             $table->timestamps();
         });
     }
