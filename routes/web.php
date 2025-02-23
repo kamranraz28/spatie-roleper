@@ -68,9 +68,9 @@ Route::post('/permissions-destroy/{id}', [PermissionController::class, 'destroy'
 Route::put('/permissions-update/{id}', [PermissionController::class, 'update'])->name('permissions.update');
 
 Route::get('/logo-view', [UserController::class, 'logoChangeView'])->name('logoChangeView');
-Route::post('/logo-update', [UserController::class, 'logoUpdate'])->name('updateLogo'); 
+Route::post('/logo-update', [UserController::class, 'logoUpdate'])->name('updateLogo');
 Route::get('/color-view', [UserController::class, 'colorChangeView'])->name('colorChangeView');
-Route::post('/color-update', [UserController::class, 'updateColors'])->name('updateColors'); 
+Route::post('/color-update', [UserController::class, 'updateColors'])->name('updateColors');
 
 
 

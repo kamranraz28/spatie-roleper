@@ -13,7 +13,7 @@
 <div class="common-container">
     <h2>List of Users with Their Roles</h2>
 
-  
+
     <div class="d-flex justify-content-end mb-4">
         <a class="btn btn-primary" href="{{ route('users.create') }}" style="background-color: {{ $buttonColor }};">
         <i class="fas fa-plus"> </i> Create User
@@ -44,11 +44,11 @@
                     </td>
                     <td>
                         <!-- Action buttons: Edit and Delete -->
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning" style="background-color: {{ $buttonColor }};">Edit</a>
 
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline-block;">
                             @csrf
-                            
+
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
                         </form>
                     </td>

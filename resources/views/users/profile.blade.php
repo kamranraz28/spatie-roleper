@@ -77,7 +77,7 @@
 
         <!-- Submit Button -->
         <div class="col-12 text-center mt-4">
-            <button type="submit" class="btn btn-primary btn-lg">Update Profile</button>
+            <button type="submit" class="btn btn-primary btn-lg" style="background-color: {{ $buttonColor }};">Update Profile</button>
         </div>
     </form>
 </div>

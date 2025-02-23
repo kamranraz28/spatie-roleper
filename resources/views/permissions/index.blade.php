@@ -40,7 +40,7 @@
                         <td>{{ $permission->name }}</td>
                         <td>
                             <!-- Edit Button -->
-                            <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning btn-sm">
+                            <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning btn-sm" style="background-color: {{ $buttonColor }};">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
 

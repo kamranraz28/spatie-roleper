@@ -46,7 +46,7 @@
                 @can('software_settings')
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link">
-                        <span class="pcoded-micon"><i class="feather icon-layout"></i></span>
+                        <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
                         <span class="pcoded-mtext">Software Settings</span>
                     </a>
                     <ul class="pcoded-submenu" style="background-color: {{ $sidebarColor }};">
