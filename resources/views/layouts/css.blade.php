@@ -7,3 +7,4 @@
 
 <!-- Custom vendor CSS (Make sure this comes last to override other styles) -->
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">

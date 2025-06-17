@@ -70,7 +70,7 @@ class LoginController extends Controller
                 $message->to($user->email);
                 $message->subject('Your OTP for Login');
             });
-            
+
 
             return redirect()->back()->with('success', 'An OTP has been sent to your email. Use this OTP as password and Login.');
         }
