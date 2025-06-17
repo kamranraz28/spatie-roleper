@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Kamran</title>
+    <title>Password - Reset</title>
     <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 11]>
@@ -31,7 +31,6 @@
 <!-- [ auth-signin ] start -->
 <div class="auth-wrapper">
     <div class="auth-content text-center">
-        <img src="assets/images/logo.png" alt="" class="img-fluid mb-4">
         <div class="card borderless">
             <div class="row align-items-center ">
                 <div class="col-md-12">
@@ -51,13 +50,13 @@
                                 <input type="text" class="form-control" id="Email" name="email"
                                     placeholder="Enter your email to receive an OTP">
                             </div>
-    
-                            
+
+
                             <button class="btn btn-block btn-primary mb-4">Request OTP</button>
                             <hr>
                             <p class="mb-2 text-muted">Back to <a href="{{route('login')}}"
                                     class="f-w-400">Login</a></p>
-                            
+
                         </form>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Tenant Management - Login</title>
+    <title>Sign-In</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
