@@ -36,8 +36,8 @@
                         <td>{{ $permission->name }}</td>
                         <td>
                             <a href="{{ route('permissions.edit', $permission->id) }}"
-                               class="btn btn-warning btn-sm me-2 btn-edit" style="background-color: {{ $buttonColor }};>
-                                <i class="fas fa-edit"></i> Edit
+                               class="btn btn-warning btn-sm me-2 btn-edit" style="background-color: {{ $buttonColor }};">
+                                <i class="fas fa-edit me-2"></i> Edit
                             </a>
 
                             <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST" class="d-inline">
