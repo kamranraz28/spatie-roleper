@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'My Profile')
+@section('title', 'Application Logo Change')
 
 @section('content')
 

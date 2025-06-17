@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Dashboard')
+@section('title', 'Permissions - Create')
 
 @section('content')
 
@@ -24,6 +24,9 @@
                     <button type="submit" class="btn btn-primary px-4 py-2 shadow btn-create" style="background-color: {{ $buttonColor }};">
                         <i class="fas fa-plus me-2"></i> Create Permission
                     </button>
+                    <a href="{{ route('permissions.index') }}" class="btn btn-secondary px-4 py-2 shadow btn-create ms-2">
+                        <i class="fas fa-times me-2"></i> Cancel
+                    </a>
                 </div>
             </form>
         </div>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Create Role')
+@section('title', 'Role - Create')
 
 @section('content')
 
@@ -70,7 +70,12 @@
 
                 <!-- Submit Button -->
                 <div class="col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-primary px-4 py-2 shadow btn-create" style="background-color: {{ $buttonColor }};">Create Role</button>
+                    <button type="submit" class="btn btn-primary px-4 py-2 shadow btn-create" style="background-color: {{ $buttonColor }};">
+                        <i class="fas fa-plus me-2"></i> Create Role
+                    </button>
+                    <a href="{{ route('roles.index') }}" class="btn btn-secondary px-4 py-2 shadow btn-create ms-2">
+                        <i class="fas fa-times me-2"></i> Cancel
+                    </a>
                 </div>
             </form>
         </div>
