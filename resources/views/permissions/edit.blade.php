@@ -4,28 +4,31 @@
 
 @section('content')
 
-<div class="container my-5" >
-    <!-- Card for better structure -->
-    <div class="card shadow-lg">
-        <div class="card-header bg-primary text-white" style="background-color: {{ $buttonColor }};">
-            <h4 class="mb-0">Edit Permission: {{ $permission->name }}</h4>
+<div class="container my-5">
+    <div class="card shadow-lg animate__animated animate__fadeInDown">
+        <div class="card-header bg-primary text-white d-flex justify-content-center align-items-center">
+            <h4 class="mb-0 page-title">Edit Permission: {{ $permission->name }}</h4>
         </div>
         <div class="card-body">
-            <!-- Edit Permission Form -->
-            <form action="{{ route('permissions.update', $permission->id) }}" method="POST" class="row g-3">
+            <form action="{{ route('permissions.update', $permission->id) }}" method="POST" class="row g-3 needs-validation" novalidate>
                 @csrf
-                @method('PUT') <!-- Method spoofing to handle PUT request -->
+                @method('PUT')
 
-                <!-- Permission Name Input -->
                 <div class="col-md-12">
-                    <label for="name" class="form-label">Permission Name:</label>
-                    <input type="text" class="form-control" name="name" id="name" value="{{ $permission->name }}" placeholder="Enter permission name" required>
+                    <label for="name" class="form-label fw-semibold">Permission Name:</label>
+                    <input type="text" class="form-control shadow-sm" name="name" id="name" value="{{ $permission->name }}" placeholder="Enter permission name" required>
+                    <div class="invalid-feedback">
+                        Please provide a permission name.
+                    </div>
                 </div>
 
-                <!-- Centered button with spacing -->
                 <div class="col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg px-3" style="background-color: {{ $buttonColor }};">Update Permission</button>
-                    <a href="{{ route('permissions.index') }}" class="btn btn-secondary btn-lg px-3" style="background-color: {{ $buttonColor }};">Cancel</a>
+                    <button type="submit" class="btn btn-primary px-4 py-2 shadow btn-create" style="background-color: {{ $buttonColor }};">
+                        <i class="fas fa-save me-2"></i> Update Permission
+                    </button>
+                    <a href="{{ route('permissions.index') }}" class="btn btn-secondary px-4 py-2 shadow btn-create ms-2">
+                        <i class="fas fa-times me-2"></i> Cancel
+                    </a>
                 </div>
             </form>
         </div>

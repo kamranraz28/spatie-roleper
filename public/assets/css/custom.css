@@ -102,3 +102,43 @@
         animation: fadeInDown 0.8s ease-in-out;
     }
 
+    h2.page-title {
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #333;
+    }
+
+    .btn-create {
+        background-color: {{ $buttonColor }};
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .table-container {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    #example thead.table-dark {
+        border-radius: 8px;
+    }
+
+    tr.permission-row {
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-edit {
+        border-radius: 6px;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease;
+    }
+
+    .btn-delete {
+        border-radius: 6px;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease;
+    }
+
+
